@@ -1,10 +1,18 @@
 function objectFactory(library, orders) {
+    const result = [];
 
-
-
+    for (const order of orders) {
+        const current = Object.assign({}, order.template);
+        for (const part of order.parts) {
+            current[part] = library[part];
+        }
+        result.push(current);
+    }
+    console.table(result);
+    //return result;
 }
 const library = {
-    print:  function () { console.log(`${this.name} is printing a page`); },
+    print: function () { console.log(`${this.name} is printing a page`); },
     scan: function () { console.log(`${this.name} is scanning a document`); },
     play: function (artist, track) { console.log(`${this.name} is playing '${track}' by ${artist}`); },
 };
