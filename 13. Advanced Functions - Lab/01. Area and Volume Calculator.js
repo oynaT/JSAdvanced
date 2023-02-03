@@ -1,3 +1,6 @@
+//Write a function that calculates the area and the volume of a figure, 
+//which is defined by its coordinates (x, y, z).
+
 function areaAndVolumeCalculator(areaFunc, volFunc, shapesJSON) {
 
     const shapes = JSON.parse(shapesJSON);
