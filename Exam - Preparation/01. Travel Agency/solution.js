@@ -53,7 +53,7 @@ function solution() {
 }
 
 
-//solution 2 no for loops
+//solution 2 no for loops and Array's
 function solution2() {
   let nameField = document.querySelector('#fname');
   let mailField = document.querySelector('#email');
