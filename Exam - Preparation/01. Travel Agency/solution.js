@@ -53,6 +53,11 @@ function solution() {
 }
 
 
+
+
+
+
+
 //solution 2 no for loops and Array's
 function solution2() {
   let nameField = document.querySelector('#fname');
