@@ -54,7 +54,8 @@ function solve() {
                 e.currentTarget.textContent = 'More Info';
             }
         });
-
+        
+        //Buy it
         buyButtonElement.textContent = 'Buy it';
         buyButtonElement.classList.add('buyBtn');
         buyButtonElement.addEventListener('click', (e) => {
