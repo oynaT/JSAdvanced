@@ -25,6 +25,7 @@ function solve() {
         if (name == '' || input.age.value.trim() == '' || Number.isNaN(age) || kind == '' || owner == '') {
             return;
         }
+        
         // create list item 
         const liPet = document.createElement('li');
         liPet.innerHTML = `<p>
@@ -39,9 +40,9 @@ function solve() {
 
         const contactBtn = liPet.querySelector('button');
         contactBtn.addEventListener('click', contact);
-
         // append to first list
         petList.appendChild(liPet);
+
         input.name.value = '';
         input.age.value = '';
         input.kind.value = '';
@@ -49,27 +50,17 @@ function solve() {
 
         function contact() {
             // create list item 
-            const liConf = document.createElement('li');
-            liConf.innerHTML = `<p>
-            <strong>${name}</strong>
-            Is a 
-            <strong>${age}</strong>
-            year old
-            <strong>${kind}</strong>
-            </p>
-          <span>Owner: ${owner}</span>
-          <div>
+            const liConf = document.createElement('div');
+            liConf.innerHTML = `          
           <input placeholder = "Enter your names">
-          <button>Yes! I take it!</button>
-          </div>`;
-        
+          <button>Yes! I take it!</button>`;
+    
           const confirmBtn = liConf.querySelector('button');
           const inputConf = liConf.querySelector('input');
 
           confirmBtn.addEventListener('click', adopt.bind(null, inputConf ,liPet));
           contactBtn.remove();
           liPet.appendChild(liConf);
-
         }
     }
     function adopt(input, liPet){
@@ -79,14 +70,26 @@ function solve() {
         }
         const checkBtn = document.createElement('button');
         checkBtn.textContent = 'Checked';
+
         checkBtn.addEventListener('click', check.bind(null, liPet));
         liPet.querySelector('div').remove();
         liPet.appendChild(checkBtn);
+
         liPet.querySelector('span').textContent = `New Owner: ${newOwner}`;
+
         adoptedList.appendChild(liPet);
     }
+
     function check(liPet){
         liPet.remove();
     }
 }
 
+    //     <p>
+        //     <strong>${name}</strong>
+        //     Is a 
+        //     <strong>${age}</strong>
+        //     year old
+        //     <strong>${kind}</strong>
+        //     </p>
+        //   <span>Owner: ${owner}</span>
