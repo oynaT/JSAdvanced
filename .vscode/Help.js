@@ -186,3 +186,18 @@ arr.sort(function(a, b){
     // DESC -> b.length - a.length
     return b.length - a.length;
   });
+
+
+
+
+
+      // function deleteMail() {
+    //     console.log('here');
+    //     const delList = document.createElement('li');
+    //     delList.innerHTML = `
+    //         <span>To: ${name}</span>
+    //         <span>Title: ${title}</span>`;
+
+    //     deleteList.appendChild(delList);
+    //     sendEl.remove();
+    // }
