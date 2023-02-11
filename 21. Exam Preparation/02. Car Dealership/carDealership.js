@@ -53,6 +53,15 @@ class CarDealership {
         return `${model} was sold for ${sold.soldPrice}$`
     }
 
+    currentCar (){
+        if(this.availableCars.length == 0) {
+            return 'There are no available cars';
+        }
+        const result = this.availableCars.map(car => `---${car.model} - ${car.horsepower} HP - ${car.mileage.toFixed(2)} km - ${car.price.toFixed(2)}$`);
+        result.unshift('-Available cars:');
+        return result.join('\n');
+    }
+
     _validateModel(value) {
         return typeof value == 'string' && value != '';
     }
@@ -62,7 +71,6 @@ class CarDealership {
     _validateMileageAndPrice(value) {
         return typeof value == 'number' && value >= 0;
     }
-
 }
 
 let dealership = new CarDealership('SoftAuto');
@@ -72,12 +80,12 @@ console.log(dealership.addCar('Mercedes C63', 300, 29000, 187000));
 console.log(dealership.addCar('', 120, 4900, 240000));
 
 
-// dealership = new CarDealership('SoftAuto');
-// dealership.addCar('Toyota Corolla', 100, 3500, 190000);
-// dealership.addCar('Mercedes C63', 300, 29000, 187000);
-// dealership.addCar('Audi A3', 120, 4900, 240000);
-// console.log(dealership.sellCar('Toyota Corolla', 230000));
-// console.log(dealership.sellCar('Mercedes C63', 110000));
+dealership = new CarDealership('SoftAuto');
+dealership.addCar('Toyota Corolla', 100, 3500, 190000);
+dealership.addCar('Mercedes C63', 300, 29000, 187000);
+dealership.addCar('Audi A3', 120, 4900, 240000);
+console.log(dealership.sellCar('Toyota Corolla', 230000));
+console.log(dealership.sellCar('Mercedes C63', 110000));
 
 
 
