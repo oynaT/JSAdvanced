@@ -13,7 +13,7 @@ class CarDealership {
             || !this._validateHorsepower(horsepower)
             || !this._validateMileageAndPrice(mileage)
             || !this._validateMileageAndPrice(price)) {
-            throw new TypeError('Invalid Input!');
+            throw new Error('Invalid Input!');
         }
 
         this.availableCars.push({
@@ -38,6 +38,7 @@ class CarDealership {
             model: match.model,
             horsepower: match.horsepower
         };
+
         if (mileageDelta <= 0) {
             //original price 
             sold.soldPrice = match.price;
@@ -50,16 +51,33 @@ class CarDealership {
         }
         this.soldCars.push(sold);
         this.availableCars.splice(index, 1);
+
+        this.totalIncome += sold.soldPrice;
         return `${model} was sold for ${sold.soldPrice}$`
     }
 
-    currentCar (){
-        if(this.availableCars.length == 0) {
+    currentCar() {
+        if (this.availableCars.length == 0) {
             return 'There are no available cars';
         }
         const result = this.availableCars.map(car => `---${car.model} - ${car.horsepower} HP - ${car.mileage.toFixed(2)} km - ${car.price.toFixed(2)}$`);
         result.unshift('-Available cars:');
         return result.join('\n');
+    }
+
+    salesReport(criteria) {
+        if (criteria == 'horsepower') {
+            //sort descending by horsepower
+            this.soldCars.sort((a, b) => b.horsepower - a.horsepower)
+        } else if (criteria == 'model') {
+            //sort alphabetical by name
+            this.soldCars.sort((a, b) => a.model.localeCompare(b.model));
+        } else {
+            throw new Error('Invalid criteria!');
+        }
+        const result = this.soldCars.map(car => `---${car.model} - ${car.horsepower.toFixed(2)} HP - ${car.price.toFixed(2)}$`);
+        result.unshift(`-${this.soldCars.length} cars sold:`);
+        result.unshift(`-${this.name} has a total income of ${this.totalIncome.toFixed(2)}$`);
     }
 
     _validateModel(value) {
@@ -79,13 +97,26 @@ console.log(dealership.addCar('Toyota Corolla', 100, 3500, 190000));
 console.log(dealership.addCar('Mercedes C63', 300, 29000, 187000));
 console.log(dealership.addCar('', 120, 4900, 240000));
 
-
 dealership = new CarDealership('SoftAuto');
 dealership.addCar('Toyota Corolla', 100, 3500, 190000);
 dealership.addCar('Mercedes C63', 300, 29000, 187000);
 dealership.addCar('Audi A3', 120, 4900, 240000);
 console.log(dealership.sellCar('Toyota Corolla', 230000));
 console.log(dealership.sellCar('Mercedes C63', 110000));
+
+dealership = new CarDealership('SoftAuto');
+dealership.addCar('Toyota Corolla', 100, 3500, 190000);
+dealership.addCar('Mercedes C63', 300, 29000, 187000);
+dealership.addCar('Audi A3', 120, 4900, 240000);
+console.log(dealership.currentCar());
+
+dealership = new CarDealership('SoftAuto');
+dealership.addCar('Toyota Corolla', 100, 3500, 190000);
+dealership.addCar('Mercedes C63', 300, 29000, 187000);
+dealership.addCar('Audi A3', 120, 4900, 240000);
+dealership.sellCar('Toyota Corolla', 230000);
+dealership.sellCar('Mercedes C63', 110000);
+console.log(dealership.salesReport('horsepower'));
 
 
 
