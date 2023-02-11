@@ -1,6 +1,6 @@
 class CarDealership {
 
-    constructot(name) {
+    constructor(name) {
         this.name = name;
         this.availableCars = [];
         this.soldCars = [];
@@ -26,10 +26,10 @@ class CarDealership {
         return `New car added: ${model} - ${horsepower} HP - ${mileage.toFixed(2)} km - ${price.toFixed(2)}$`;
     }
 
-    sellCar (model, desiredMileage){
+    sellCar(model, desiredMileage) {
         const index = this.availableCars.findIndex(car => car.model == model);
         const match = this.availableCars[index];
-        if(match !== undefined){
+        if (match !== undefined) {
             throw new Error(`${model} was not found!`);
         }
         const mileageDelta = match.mileage - desiredMileage;
@@ -38,13 +38,13 @@ class CarDealership {
             model: match.model,
             horsepower: match.horsepower
         };
-        if(mileageDelta <= 0){
+        if (mileageDelta <= 0) {
             //original price 
             sold.soldPrice = match.price;
-        }else if(mileageDelta <= 40000){
+        } else if (mileageDelta <= 40000) {
             //5% deduction
             sold.soldPrice = match.price * 0.95;
-        }else{
+        } else {
             //10% deduction
             sold.soldPrice = match.price * 0.95;
         }
