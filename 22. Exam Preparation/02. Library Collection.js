@@ -55,7 +55,7 @@ class LibraryCollection {
           a.bookName.localeCompare(b.bookName)
         );
         for (const book of sortedBooks) {
-          result += `\n${book.bookName} == ${book.bookAuthor} - ${
+          result += `\n ${book.bookName} == ${book.bookAuthor} - ${
             book.paid ? "Has Paid" : "Not Paid"
           }.`;
         }
