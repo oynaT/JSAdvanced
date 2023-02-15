@@ -92,6 +92,8 @@ class VeterinaryClinic {
 
 }
 
+
+
 let clinic = new VeterinaryClinic('SoftCare', 10);
 console.log(clinic.newCustomer('Jim Jones', 'Tom', 'Cat', ['A154B', '2C32B', '12CDB']));
 console.log(clinic.newCustomer('Anna Morgan', 'Max', 'Dog', ['SK456', 'DFG45', 'KS456']));
@@ -149,7 +151,7 @@ class VeterinaryClinic2{
             }
             else{
  
-               throw new Error(`This pet is already registered under ${ownerName} name! ${petName} is on our lists, waiting for ${pet.procedures.join(', ')}.`)
+               throw new Error(`This pet is already registered under ${ownerName} name! ${petName} is on our lists, waiting for ${pet.procedures.join(', ')}`)
             }
         }
     }
