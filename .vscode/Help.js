@@ -1,3 +1,12 @@
+// Follow the steps to add a folder to .gitignore using UI
+// Click Source Control on left pane
+// Click on three dots at right top of Source Control tab
+// Select View & Sort>View as Tree
+// Right click on the folder you want to add to .gitignore
+// Select Add to .gitignore
+// You are done!
+
+
 //HELP file
 
 // %
