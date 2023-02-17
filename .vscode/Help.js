@@ -196,17 +196,12 @@ arr.sort(function(a, b){
     return b.length - a.length;
   });
 
-
-
-
-
-      // function deleteMail() {
-    //     console.log('here');
-    //     const delList = document.createElement('li');
-    //     delList.innerHTML = `
-    //         <span>To: ${name}</span>
-    //         <span>Title: ${title}</span>`;
-
-    //     deleteList.appendChild(delList);
-    //     sendEl.remove();
-    // }
+//DOM ADVANCED - Create dom element function 
+function createDOMelement(type, text, className) {
+    let result = document.createElement(type);
+    result.textContent = text;
+    if (className) {
+        result.classList = className
+    }
+    return result
+}

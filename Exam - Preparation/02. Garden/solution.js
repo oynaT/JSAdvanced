@@ -102,18 +102,18 @@ class Garden {
     return toReturn;
 
     // 2nd. way
-    const plantsAsString = this.plants.map(plant => plant.plantName).sort((a, b) => a.localeCompare(b));
-    const plantRow = `Plants in the garden: ${plantsAsString.join(', ')}`;
-    let storageRow = `Plants in storage: The storage is empty.`;
-    if (this.storage.length > 0) {
-      const storateAsString = this.storage.map(plant => `${plant.plantName} (${plant.quantity})`);
-      storageRow = `Plants in storage: ${storateAsString.join(', ')}`;
-    }
-    return [
-      `The garden has ${this.spaceAvailable} free space left.`,
-      plantRow,
-      storageRow,
-    ].join('\n');
+    // const plantsAsString = this.plants.map(plant => plant.plantName).sort((a, b) => a.localeCompare(b));
+    // const plantRow = `Plants in the garden: ${plantsAsString.join(', ')}`;
+    // let storageRow = `Plants in storage: The storage is empty.`;
+    // if (this.storage.length > 0) {
+    //   const storateAsString = this.storage.map(plant => `${plant.plantName} (${plant.quantity})`);
+    //   storageRow = `Plants in storage: ${storateAsString.join(', ')}`;
+    // }
+    // return [
+    //   `The garden has ${this.spaceAvailable} free space left.`,
+    //   plantRow,
+    //   storageRow,
+    // ].join('\n');
 
   }
 

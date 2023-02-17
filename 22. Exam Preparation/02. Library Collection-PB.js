@@ -48,16 +48,10 @@ class LibraryCollection {
    
     getStatistics(bookAuthor) {
       if (bookAuthor === undefined) {
-        let result = `The book collection has ${
-          this.capacity - this.books.length
-        } empty spots left.`;
-        let sortedBooks = this.books.sort((a, b) =>
-          a.bookName.localeCompare(b.bookName)
-        );
+        let result = `The book collection has ${this.capacity - this.books.length} empty spots left.`;
+        let sortedBooks = this.books.sort((a, b) => a.bookName.localeCompare(b.bookName));
         for (const book of sortedBooks) {
-          result += `\n ${book.bookName} == ${book.bookAuthor} - ${
-            book.paid ? "Has Paid" : "Not Paid"
-          }.`;
+          result += `\n ${book.bookName} == ${book.bookAuthor} - ${book.paid ? "Has Paid" : "Not Paid"}.`;
         }
         return result;
       }
@@ -65,11 +59,7 @@ class LibraryCollection {
       let result = [];
       for (const book of this.books) {
         if (book.bookAuthor === bookAuthor) {
-          result.push(
-            `${book.bookName} == ${book.bookAuthor} - ${
-              book.paid ? "Has Paid" : "Not Paid"
-            }.`
-          );
+          result.push(`${book.bookName} == ${book.bookAuthor} - ${book.paid ? "Has Paid" : "Not Paid"}.`);
         }
         return result.join("n");
       }
