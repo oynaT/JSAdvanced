@@ -205,3 +205,7 @@ function createDOMelement(type, text, className) {
     }
     return result
 }
+
+//UNIT TEST 
+//За сравнение на МАСИВ !!!
+//expect(testNumbers.averageSumArray([{title:'aa', genre:'a'}], 'a')).to.deep.equal(['aa']);
